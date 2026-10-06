@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#05070d">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Shosta Lab builds useful experiments, apps and technology projects. Explore PalmLink, Brand//Grade and future releases from an independent digital lab.">
+  <meta name="keywords" content="Shosta Lab, PalmLink, Brand Grade, technology lab, apps, AI experiments, software projects">
+  <meta name="author" content="Shosta Lab">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Shosta Lab — We build weird useful things.">
+  <meta property="og:description" content="Independent experiments in apps, AI, technology and useful digital products.">
+  <meta property="og:image" content="/assets/shosta-social.png">
+  <meta property="og:image:alt" content="Shosta Lab blue identity on a deep navy background">
+  <meta property="og:site_name" content="Shosta Lab">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shosta Lab — We build weird useful things.">
+  <meta name="twitter:description" content="Independent experiments in apps, AI, technology and useful digital products.">
+  <meta name="twitter:image" content="/assets/shosta-social.png">
+  <link rel="canonical" href="/">
+  <link rel="icon" href="/assets/shosta-mark.png" type="image/png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <title>Shosta Lab — We build weird useful things.</title>
+  <script type="application/ld+json" id="structured-data">{
+    "@context":"https://schema.org",
+    "@graph":[
+      {"@type":"Organization","name":"Shosta Lab","url":"/","logo":"/assets/shosta-mark.png","sameAs":["https://instagram.com/shosta_lab","https://www.facebook.com/share/1FLKvganai/"]},
+      {"@type":"WebSite","name":"Shosta Lab","url":"/","description":"Independent experiments in apps, AI, technology and useful digital products."},
+      {"@type":"WebApplication","name":"Brand//Grade","url":"https://smallstudio-cloud.github.io/","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"A business-name analyzer, generator and comparison tool."},
+      {"@type":"SoftwareApplication","name":"PalmLink","applicationCategory":"UtilitiesApplication","operatingSystem":"Android","description":"A gesture-driven screenshot transfer app built to move screenshots between Android phones without touch-first approval flows."}
+    ]
+  }</script>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#app">Skip to content</a>
+  <canvas id="dot-field" aria-hidden="true"></canvas>
+  <div class="ambient ambient-a" aria-hidden="true"></div>
+  <div class="ambient ambient-b" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <div id="app-shell">
+    <header class="site-header">
+      <button class="brand-lockup" data-nav="home" aria-label="Shosta Lab home">
+        <span class="brand-mark-wrap"><img src="/assets/shosta-mark.png" alt="" class="brand-mark"></span>
+        <span class="brand-word"><strong>SHOSTA</strong><em>LAB</em></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <button data-scroll="projects">Projects</button>
+        <button data-scroll="about">About</button>
+        <button data-scroll="contact">Contact</button>
+      </nav>
+
+      <div class="header-actions">
+        <span class="auth-greeting" id="auth-greeting" hidden></span>
+        <button class="ghost-btn" data-nav="auth" id="account-btn">Sign up / Log in</button>
+      </div>
+    </header>
+
+    <main id="app" tabindex="-1"></main>
+  </div>
+
+  <div id="p-transition" aria-hidden="true">
+    <div class="p-browser-shell">
+      <div class="p-toolbar">
+        <span class="p-dot"></span><span class="p-dot"></span><span class="p-dot"></span>
+        <div class="p-address">shosta-lab.app <span>›</span> workspace</div>
+        <span class="p-tab-count">3</span>
+      </div>
+      <div class="p-tabs">
+        <div class="p-tab is-current"><span class="mini-mark"></span><span>Shosta Lab</span><i>×</i></div>
+        <div class="p-tab is-target"><span class="mini-mark"></span><span id="p-target-label">Project</span><i>×</i></div>
+        <div class="p-tab"><span class="mini-mark"></span><span>More ideas</span><i>×</i></div>
+      </div>
+      <div class="p-body">
+        <div class="p-card p-card-a"><span></span><b></b><i></i></div>
+        <div class="p-card p-card-b"><span></span><b></b><i></i></div>
+        <div class="p-card p-card-c"><span></span><b></b><i></i></div>
+      </div>
+      <div class="p-label">P animation · 3.0s</div>
+    </div>
+  </div>
+
+  <div id="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <script src="/site-config.js"></script>
+  <script src="/app.js" defer></script>
+</body>
+</html>
