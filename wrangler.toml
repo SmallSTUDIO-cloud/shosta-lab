@@ -11,5 +11,5 @@ run_worker_first = ["/api/*"]
 [[d1_databases]]
 binding = "DB"
 database_name = "shosta_lab"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_id = "2b53500d-a29f-485a-bd23-12368151caff"
 migrations_dir = "migrations"
