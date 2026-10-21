@@ -15,15 +15,13 @@ window.SH0STA_CONFIG = {
     brandGradeUrl: "https://smallstudio-cloud.github.io/",
 
     // Aerviqo releases
-    // Keep the existing property name for compatibility with the
-    // current website JavaScript.
-    palmlinkReleases: [
+    aerviqoReleases: [
       {
         version: "0.5.0",
         name: "Aerviqo 0.5.0",
         size: "114 MB",
         notes: "Touchless Android control with natural hand gestures, screenshot capture, transfer, and navigation features.",
-        url: "https://github.com/SmallSTUDIO-cloud/notouchgesture/releases/download/v0.5.0/app-debug.apk"
+        url: "https://github.com/SmallSTUDIO-cloud/notouchgesture/releases/tag/V0.5.0"
       }
     ]
   }

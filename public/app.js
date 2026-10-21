@@ -24,12 +24,12 @@
   const views = {
     home: homeView,
     brandgrade: brandGradeView,
-    palmlink: palmLinkView,
+    aerviqo: aerviqoView,
     auth: authView,
   };
 
   function navTargetLabel(view) {
-    return ({home:"Shosta Lab", brandgrade:"Brand//Grade", palmlink:"PalmLink", auth:"Access"}[view] || "Project");
+    return ({home:"Shosta Lab", brandgrade:"Brand//Grade", aerviqo:"Aerviqo", auth:"Access"}[view] || "Project");
   }
 
   function showToast(message, detail = "") {
@@ -80,13 +80,13 @@
     const titles = {
       home: "Shosta Lab — We build weird useful things.",
       brandgrade: "Brand//Grade — Business Name Intelligence | Shosta Lab",
-      palmlink: "PalmLink — Gesture-driven screenshot transfer | Shosta Lab",
+      aerviqo: "Aerviqo — Touchless Android control | Shosta Lab",
       auth: "Shosta Lab Access — Sign up or log in"
     };
     const descriptions = {
-      home: "Shosta Lab builds useful experiments, apps and technology projects. Explore PalmLink, Brand//Grade and future releases.",
+      home: "Shosta Lab builds useful experiments, apps and technology projects. Explore Aerviqo, Brand//Grade and future releases.",
       brandgrade: "Explore Brand//Grade, a business-name analyzer, generator and comparison tool built as a Shosta Lab project.",
-      palmlink: "Explore PalmLink, the Android gesture-driven screenshot transfer app from Shosta Lab, with release information and download slots.",
+      aerviqo: "Explore Aerviqo, the Android touchless gesture-control app from Shosta Lab, with release information and download slots.",
       auth: "Create a Shosta Lab account or log in with your username or email."
     };
     document.title = titles[view];
@@ -101,7 +101,7 @@
       graph["@graph"][0].logo = base + "/assets/shosta-mark.png";
       graph["@graph"][1].url = base + "/";
       graph["@graph"][2].url = config.projects.brandGradeUrl;
-      graph["@graph"][3].url = base + "/projects/palmlink/";
+      graph["@graph"][3].url = base + "/projects/aerviqo/";
       ld.textContent = JSON.stringify(graph);
     }
   }
@@ -133,13 +133,13 @@
   }
 
   function routeFor(view) {
-    return view === "home" ? "/" : (view === "brandgrade" ? "/projects/brand-grade/" : view === "palmlink" ? "/projects/palmlink/" : "/access/");
+    return view === "home" ? "/" : (view === "brandgrade" ? "/projects/brand-grade/" : view === "aerviqo" ? "/projects/aerviqo/" : "/access/");
   }
 
   function viewFromPath() {
     const p = location.pathname;
     if (p.includes("brand-grade")) return "brandgrade";
-    if (p.includes("palmlink")) return "palmlink";
+    if (p.includes("aerviqo") || p.includes("palmlink")) return "aerviqo";
     if (p.includes("access")) return "auth";
     return "home";
   }
@@ -179,7 +179,7 @@
               <p class="hero-copy">Shosta Lab is a small experimental studio for apps, AI, interfaces and ideas that are too useful to stay as ideas.</p>
               <div class="hero-actions">
                 <button class="primary-btn" data-scroll="projects">Explore projects ${icon.arrow}</button>
-                <button class="secondary-btn" data-nav="palmlink">See PalmLink</button>
+                <button class="secondary-btn" data-nav="aerviqo">See Aerviqo</button>
               </div>
               <div class="hero-meta">
                 <div class="hero-stat"><strong>02</strong><span>public projects</span></div>
@@ -213,21 +213,21 @@
             <p class="section-copy">Two real projects are public now. The next card is deliberately waiting for something worth shipping.</p>
           </div>
           <div class="project-grid">
-            <button class="project-card featured" data-nav="palmlink" aria-label="Open PalmLink project">
+            <button class="project-card featured" data-nav="aerviqo" aria-label="Open Aerviqo project">
               <div class="card-bg card-grid"></div><div class="card-bg card-glow"></div>
               <div class="project-body">
                 <div>
                   <div class="project-top">
-                    <div class="project-brand"><img class="project-logo palmlink" src="/assets/palmlink-logo.png" alt="PalmLink logo"><div><div style="font-weight:850">PalmLink</div><div style="color:#70809a;font-size:10px;margin-top:3px">Android app · 0.4.x</div></div></div>
+                    <div class="project-brand"><img class="project-logo aerviqo" src="/assets/aerviqo-logo.png" alt="Aerviqo logo"><div><div style="font-weight:850">Aerviqo</div><div style="color:#70809a;font-size:10px;margin-top:3px">Android app · 0.5.x</div></div></div>
                     <span class="project-tag">Featured</span>
                   </div>
                   <div class="project-name">Screenshots.<br><span style="color:#4aa1ff">Without touch.</span></div>
                   <p class="project-description">Gesture-driven screenshot capture and two-phone transfer, built around open-palm and fist interactions.</p>
-                  <div class="palmlink-visual">
+                  <div class="aerviqo-visual">
                     <div class="phone phone-a"><div class="phone-screen"></div></div>
                     <div class="phone phone-b"><div class="phone-screen"></div></div>
                     <div class="transfer-arc"></div><div class="transfer-dot"></div>
-                    <img class="phone-icon" src="/assets/palmlink-logo.png" alt="">
+                    <img class="phone-icon" src="/assets/aerviqo-logo.png" alt="">
                   </div>
                 </div>
                 <div class="project-footer"><span class="project-micro">gesture · capture · transfer</span><span class="arrow-button">Open project ${icon.arrow}</span></div>
@@ -274,7 +274,7 @@
           <div class="section-head"><div><div class="kicker">Talk to the lab</div><h2 class="section-title" id="contact-title">Contact + FAQ</h2></div><p class="section-copy">Ideas, bugs, feedback or collaboration notes all go to the same inbox. Humans remain stubbornly useful for this part.</p></div>
           <div class="contact-grid">
             <article class="panel contact-card"><div><h3>Contact Shosta Lab</h3><p>Use whichever channel is easiest.</p></div><div class="contact-links"><a class="social-link" href="mailto:${config.social.email}">${icon.mail} ${config.social.email}</a><a class="social-link" href="${config.social.instagram}" target="_blank" rel="noopener noreferrer">${icon.instagram} @shosta_lab</a><a class="social-link" href="${config.social.facebook}" target="_blank" rel="noopener noreferrer">${icon.facebook} Facebook</a></div></article>
-            <article class="panel"><h3>Frequently asked</h3><div class="faq-list"><details><summary>What does Shosta Lab build?</summary><p>Apps, web tools, AI experiments, interfaces and other digital products that are useful enough to ship.</p></details><details><summary>What is PalmLink?</summary><p>PalmLink is an Android app project for gesture-driven screenshot capture and transfer between phones.</p></details><details><summary>Where can I try Brand//Grade?</summary><p>Use the project page here, then open Brand//Grade directly at ${config.projects.brandGradeUrl}.</p></details></div></article>
+            <article class="panel"><h3>Frequently asked</h3><div class="faq-list"><details><summary>What does Shosta Lab build?</summary><p>Apps, web tools, AI experiments, interfaces and other digital products that are useful enough to ship.</p></details><details><summary>What is Aerviqo?</summary><p>Aerviqo is an Android app project for touchless gesture control, screenshot capture, transfer and navigation.</p></details><details><summary>Where can I try Brand//Grade?</summary><p>Use the project page here, then open Brand//Grade directly at ${config.projects.brandGradeUrl}.</p></details></div></article>
           </div>
         </section>
       </div>
@@ -295,19 +295,19 @@
     `;
   }
 
-  function palmLinkView() {
-    const releases = config.projects.palmlinkReleases || [];
+  function aerviqoView() {
+    const releases = config.projects.aerviqoReleases || [];
     const releaseHtml = releases.map(r => `
-      <div class="release-row"><div><strong>${escapeHTML(r.name)}</strong><br><span>Version ${escapeHTML(r.version)} · ${escapeHTML(r.notes || "")}</span></div><span>${escapeHTML(r.size || "Size unknown")}</span>${r.url ? `<a href="${escapeHTML(r.url)}">Download APK</a>` : `<span class="download-disabled">APK link not configured</span>`}</div>
+      <div class="release-row"><div><strong>${escapeHTML(r.name)}</strong><br><span>Version ${escapeHTML(r.version)} · ${escapeHTML(r.notes || "")}</span></div><span>${escapeHTML(r.size || "Size unknown")}</span>${r.url ? `<a class="release-download-btn" href="${escapeHTML(r.url)}" target="_blank" rel="noopener noreferrer">Download APK ${icon.arrow}</a>` : `<span class="download-disabled">APK link not configured</span>`}</div>
     `).join("");
     return `
       <div class="view">
         <section class="detail-hero"><button class="back-btn" data-nav="home">${icon.back} Return to homepage</button><div class="detail-grid">
-          <div class="detail-copy"><div class="kicker">Shosta Lab · project 02</div><h1>Palm<span style="color:#3b8fff">Link.</span></h1><p>Gesture-driven screenshot transfer for Android. PalmLink is built around open-palm and closed-fist interactions, with capture, transfer and receiving flows designed to reduce touch-heavy steps.</p><div class="hero-actions"><button class="primary-btn" data-scroll="downloads">View APK releases ${icon.arrow}</button><button class="secondary-btn" data-nav="home">Back to projects</button></div><div class="hero-meta"><div class="hero-stat"><strong>Android</strong><span>platform</span></div><div class="hero-stat"><strong>0.4.x</strong><span>current line</span></div><div class="hero-stat"><strong>Gesture</strong><span>control model</span></div></div></div>
-          <div class="detail-visual palmlink-detail-visual"><div class="palmlink-stage"><div class="big-phone left"><div class="screen"><img src="/assets/palmlink-logo.png" alt="PalmLink"></div></div><div class="big-phone right"><div class="screen"><img src="/assets/palmlink-logo.png" alt="PalmLink"></div></div><div class="orbit-core"></div><img class="core-logo" src="/assets/palmlink-logo.png" alt=""><div class="screenshot-fly"></div></div></div>
+          <div class="detail-copy"><div class="kicker">Shosta Lab · project 02</div><h1>Aer<span style="color:#3b8fff">viqo.</span></h1><p>Touchless Android control with natural hand gestures. Aerviqo combines gesture-driven actions with screenshot capture, transfer and navigation to reduce touch-heavy steps.</p><div class="hero-actions"><button class="primary-btn" data-scroll="downloads">View APK releases ${icon.arrow}</button><button class="secondary-btn" data-nav="home">Back to projects</button></div><div class="hero-meta"><div class="hero-stat"><strong>Android</strong><span>platform</span></div><div class="hero-stat"><strong>0.5.x</strong><span>current line</span></div><div class="hero-stat"><strong>Gesture</strong><span>control model</span></div></div></div>
+          <div class="detail-visual aerviqo-detail-visual"><div class="aerviqo-stage"><div class="big-phone left"><div class="screen"><img src="/assets/aerviqo-logo.png" alt="Aerviqo"></div></div><div class="big-phone right"><div class="screen"><img src="/assets/aerviqo-logo.png" alt="Aerviqo"></div></div><div class="orbit-core"></div><img class="core-logo" src="/assets/aerviqo-logo.png" alt=""><div class="screenshot-fly"></div></div></div>
         </div></section>
-        <section class="section" id="downloads"><div class="section-head"><div><div class="kicker">Releases</div><h2 class="section-title">PalmLink APKs</h2></div><p class="section-copy">Release metadata is driven from one small config file so you can add future versions without rewriting the page.</p></div><div class="release-grid">${releaseHtml || `<div class="panel"><h3>No releases published yet.</h3><p>Add a release in <code>public/site-config.js</code>.</p></div>`}</div></section>
-        <section class="section"><div class="section-head"><div><div class="kicker">Product story</div><h2 class="section-title">Capture.<br>Orbit. Receive.</h2></div><p class="section-copy">The site visual language mirrors the app concept: a blue identity moving between two devices, with a clear status loop around the transfer.</p></div><div class="about-grid"><article class="panel"><h3>Gesture model</h3><p>On the sender, an open palm followed by a closed fist is used to trigger capture. On the receiving phone, a closed fist followed by an open palm authorizes the pending screenshot flow.</p></article><article class="panel"><h3>Visual language</h3><p>Blue glow, circular motion and device-to-device transfer metaphors keep the explanation consistent with the PalmLink identity.</p></article></div></section>
+        <section class="section" id="downloads"><div class="section-head"><div><div class="kicker">Releases</div><h2 class="section-title">Aerviqo APKs</h2></div><p class="section-copy">Release metadata is driven from one small config file so you can add future versions without rewriting the page.</p></div><div class="release-grid">${releaseHtml || `<div class="panel"><h3>No releases published yet.</h3><p>Add a release in <code>public/site-config.js</code>.</p></div>`}</div></section>
+        <section class="section"><div class="section-head"><div><div class="kicker">Product story</div><h2 class="section-title">Capture.<br>Orbit. Receive.</h2></div><p class="section-copy">The site visual language mirrors the app concept: a blue identity moving between two devices, with a clear status loop around the transfer.</p></div><div class="about-grid"><article class="panel"><h3>Gesture model</h3><p>On the sender, an open palm followed by a closed fist is used to trigger capture. On the receiving phone, a closed fist followed by an open palm authorizes the pending screenshot flow.</p></article><article class="panel"><h3>Visual language</h3><p>Blue glow, circular motion and device-to-device transfer metaphors keep the explanation consistent with the Aerviqo identity.</p></article></div></section>
       </div>
       ${footer()}
     `;

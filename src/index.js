@@ -1,5 +1,5 @@
 const SESSION_DAYS = 30;
-const PBKDF2_ITERATIONS = 310000;
+const PBKDF2_ITERATIONS = 100000;
 const SESSION_COOKIE = "shosta_session";
 const enc = new TextEncoder();
 const dec = new TextDecoder();
@@ -225,7 +225,12 @@ export default {
     const url = new URL(request.url);
 
     if (isApi(url.pathname)) {
-      return handleApi(request, env);
+      try {
+        return await handleApi(request, env);
+      } catch (error) {
+        console.error("API error:", error && error.stack || error);
+        return json({ error: "Server error. Please try again." }, 500);
+      }
     }
 
     const assetResponse = await env.ASSETS.fetch(request);
