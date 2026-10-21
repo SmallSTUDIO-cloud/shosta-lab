@@ -1,20 +1,29 @@
 window.SH0STA_CONFIG = {
-  // Change only these values when you have a final production domain/release URLs.
+  // Site
   siteUrl: window.location.origin,
+
+  // Shosta Lab social/contact links
   social: {
     instagram: "https://instagram.com/shosta_lab",
     facebook: "https://www.facebook.com/share/1FLKvganai/",
     email: "yroblox386@gmail.com"
   },
+
+  // Projects
   projects: {
+    // Shosta Lab brand project
     brandGradeUrl: "https://smallstudio-cloud.github.io/",
+
+    // Aerviqo releases
+    // Keep the existing property name for compatibility with the
+    // current website JavaScript.
     palmlinkReleases: [
       {
-        version: "0.4.0",
-        name: "PalmLink (Beta) 0.4.0",
-        size: "81.53 MB",
-        notes: "Gesture capture + background transfer baseline.",
-        url: "https://github.com/SmallSTUDIO-cloud/shosta-lab/releases/download/v0.4.0/PalmLink.Beta.0.4.0.apk"
+        version: "0.5.0",
+        name: "Aerviqo 0.5.0",
+        size: "114 MB",
+        notes: "Touchless Android control with natural hand gestures, screenshot capture, transfer, and navigation features.",
+        url: "https://github.com/SmallSTUDIO-cloud/notouchgesture/releases/download/v0.5.0/app-debug.apk"
       }
     ]
   }
