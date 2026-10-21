@@ -1,0 +1,14 @@
+{
+  "name": "shosta-lab-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Shosta Lab full-stack portfolio site for Cloudflare Workers + D1.",
+  "type": "module",
+  "scripts": {
+    "check:worker": "node --check src/index.js",
+    "check": "npm run check:worker"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
